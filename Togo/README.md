@@ -62,6 +62,8 @@ python TGO_aggregate.py
 ### Outputs
 One CSV per table the dashboard reads, in `OUTPUT_DIR`: `pov_expenditure_by_country_year`, `expenditure_by_country_func_econ_year`, `expenditure_by_country_geo0_func_sub_year`, `expenditure_by_country_geo1_year`, `expenditure_and_outcome_by_country_geo1_func_year`, `edu_private_expenditure_by_country_year`, `health_private_expenditure_by_country_year` and `data_availability`.
 
+In `expenditure_and_outcome_by_country_geo1_func_year`, each region's education or health spending in a year is paired with the Global Data Lab outcome (`attendance_6to17yo` or `health_index`) of the latest year at or before it that has a value; `outcome_year` is that year. Tests: `cd tests && python -m unittest test_togo_aggregate`.
+
 ## Tables in PostgreSQL
 
 Off databricks, both scripts can keep their tables in a PostgreSQL database instead of CSVs, in the layout the RPF country dashboard reads with its own `DB_BACKEND=postgres`: a database named `prd_mega`, with schemas named as in Unity Catalog.
